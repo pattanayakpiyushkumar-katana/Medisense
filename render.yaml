@@ -1,0 +1,46 @@
+services:
+  # ==========================================
+  # 1. Medisense Backend API (FastAPI)
+  # ==========================================
+  - type: web
+    name: medisense-backend
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health-check
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: MEDISENSE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///./medisense.db
+      - key: AI_PROVIDER
+        value: demo
+      - key: CORS_ORIGINS
+        value: "*"
+
+  # ==========================================
+  # 2. Medisense Frontend UI (React + Vite SPA)
+  # ==========================================
+  - type: static
+    name: medisense-frontend
+    plan: free
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      # Single-Page Application (SPA) routing fallback
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: medisense-backend
+          property: host

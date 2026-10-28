@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment
+venv/
+env/
+.venv/
+
+# Environment files with secrets
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+medisense.db
+
+# Frontend build outputs
+dist/
+build/
+.tmp/
+*.tsbuildinfo
+
+# Testing & Logs
+.pytest_cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.system_generated/
+
+# OS specific
+.DS_Store
+Thumbs.db

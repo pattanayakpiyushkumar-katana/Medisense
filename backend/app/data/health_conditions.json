@@ -1,0 +1,169 @@
+[
+  {
+    "id": "diabetes-type-2",
+    "name": "Type 2 Diabetes Mellitus",
+    "category": "Endocrine & Metabolic",
+    "overview": "Type 2 diabetes is a long-term metabolic condition where the body either resists the effects of insulin or doesn't produce enough insulin to maintain normal glucose levels.",
+    "general_precautions": [
+      "Check your blood glucose as recommended by your physician and maintain a daily logbook or digital record.",
+      "Inspect your feet daily for small cuts, blisters, redness, or cracks, as nerve sensitivity and healing may be reduced.",
+      "Stay hydrated with water; avoid sugary sodas, sweetened teas, and fruit juices with added sugar.",
+      "Schedule annual comprehensive eye exams (retinal screening) and kidney function (microalbuminuria) checks."
+    ],
+    "warning_signs": [
+      "Extremely high blood sugar (> 250-300 mg/dL) with fruity breath smell, rapid breathing, confusion, or persistent vomiting (Diabetic Ketoacidosis / HHS warning).",
+      "Hypoglycemia (< 70 mg/dL) signs: shakiness, cold sweat, rapid heart rate, confusion, or slurred speech.",
+      "A non-healing cut or blackish discoloration on toes or feet.",
+      "Sudden blurry vision or dark spots in your visual field."
+    ],
+    "lifestyle_considerations": [
+      "Nutrition: prioritize high-fiber foods (vegetables, whole grains, pulses, lean proteins) and limit refined carbs, white flour, and sweets.",
+      "Physical activity: aim for 150 minutes of moderate aerobic exercise (e.g. brisk walking) weekly, divided over at least 3-4 days.",
+      "Sleep & stress: chronic poor sleep and stress elevate cortisol, which directly raises blood sugar levels."
+    ],
+    "medication_cautions": [
+      "Never skip or stop prescribed insulin or oral antidiabetic agents without consulting your prescribing doctor.",
+      "Carry fast-acting glucose (such as 3-4 glucose tablets, half a cup of fruit juice, or candies) at all times if you take medications that can cause hypoglycemia.",
+      "Certain medications like steroids (prednisone) can dramatically spike blood glucose; always alert your prescriber."
+    ],
+    "when_to_seek_care": "Seek emergency medical care if blood glucose is severely low and not responding to carbohydrates, or if experiencing confusion/vomiting. Seek prompt medical review if blood sugar readings are consistently above your target range over several days.",
+    "questions_to_ask_doctor": [
+      "What is my personalized target HbA1c and fasting blood sugar range?",
+      "How often should I test my blood sugar at home, and at what times?",
+      "What is my personal action plan if my blood sugar drops below 70 mg/dL?",
+      "When is my next screening due for kidney, eye, and nerve health?"
+    ]
+  },
+  {
+    "id": "hypertension",
+    "name": "Hypertension (High Blood Pressure)",
+    "category": "Cardiovascular",
+    "overview": "Hypertension is a chronic condition where the force of blood against arterial walls is persistently elevated, increasing the workload on the heart and blood vessels.",
+    "general_precautions": [
+      "Measure blood pressure at resting state (sit calmly for 5 minutes beforehand, feet flat on the floor, arm supported at heart level).",
+      "Do not smoke or consume caffeine within 30 minutes before taking a measurement.",
+      "Limit sodium (salt) intake to less than 2,000 mg (about 1 teaspoon of table salt) daily across all meals."
+    ],
+    "warning_signs": [
+      "Hypertensive Crisis: Blood pressure higher than 180/120 mmHg accompanied by chest pain, severe shortness of breath, back pain, numbness/weakness, or visual changes (EMERGENCY - call 112 / 911 immediately).",
+      "Sudden severe headache described as the worst headache ever.",
+      "Sudden dizziness, difficulty speaking, or loss of balance."
+    ],
+    "lifestyle_considerations": [
+      "DASH Diet: emphasizes fruits, vegetables, low-fat dairy, and whole grains while reducing saturated fats and cholesterol.",
+      "Maintain a healthy weight: losing even 3-5 kg can produce meaningful reductions in blood pressure.",
+      "Limit alcohol consumption: excessive drinking directly elevates blood pressure."
+    ],
+    "medication_cautions": [
+      "Take your blood pressure medication consistently every single day, even when you feel completely fine. Hypertension is called the 'silent killer' because it usually has no daily symptoms.",
+      "Over-the-counter decongestants (such as pseudoephedrine) and NSAIDs (such as ibuprofen) can raise blood pressure; consult your pharmacist.",
+      "Do not abruptly stop beta-blockers or other blood pressure tablets due to rebound hypertension risk."
+    ],
+    "when_to_seek_care": "Seek emergency care immediately if BP exceeds 180/120 with headache, chest pain, or vision changes. Seek medical appointment if BP remains consistently above 140/90 mmHg on multiple quiet home checks.",
+    "questions_to_ask_doctor": [
+      "What is my specific target blood pressure number?",
+      "Which home blood pressure monitor cuff type do you recommend?",
+      "Should I take my medication in the morning or in the evening?",
+      "How do my other medications affect my blood pressure?"
+    ]
+  },
+  {
+    "id": "asthma",
+    "name": "Bronchial Asthma",
+    "category": "Respiratory",
+    "overview": "Asthma is a chronic condition causing inflammation and narrowing of the bronchial airways, leading to recurrent episodes of wheezing, breathlessness, chest tightness, and coughing.",
+    "general_precautions": [
+      "Identify and minimize exposure to known personal triggers: tobacco smoke, dust mites, pet dander, mold, cold dry air, pollen, and strong fragrances.",
+      "Keep your rescue (reliever) inhaler easily accessible at home, work, and during travel at all times.",
+      "Check expiration dates on inhalers and verify the dose counter regularly."
+    ],
+    "warning_signs": [
+      "Severe asthma attack: severe breathlessness, struggling to finish sentences without gasping, chest retractions (skin sucking in around ribs or neck).",
+      "Lips, tongue, or fingernails turning blue or pale gray (Cyanosis - EMERGENCY).",
+      "Rescue inhaler provides no relief or symptoms worsen rapidly after taking puffs."
+    ],
+    "lifestyle_considerations": [
+      "Use hypoallergenic pillow and mattress encasings to reduce dust mite exposure.",
+      "Warm up gently before exercising; if prescribed, take your reliever inhaler 10-15 minutes prior to cold-weather or strenuous workouts.",
+      "Keep indoor air ventilated and use exhaust fans when cooking."
+    ],
+    "medication_cautions": [
+      "Clearly distinguish between your daily 'Preventer' (corticosteroid inhaler taken every day) and your 'Reliever' (bronchodilator used during symptoms).",
+      "Rinse your mouth with water and spit it out after using a steroid inhaler to prevent oral thrush and hoarseness.",
+      "Avoid non-steroidal anti-inflammatory drugs (NSAIDs like aspirin and ibuprofen) if you have NSAID-sensitive asthma."
+    ],
+    "when_to_seek_care": "Call emergency services immediately if you are having severe difficulty breathing or the reliever inhaler is not helping. Contact your doctor promptly if you need your rescue inhaler more than twice a week during normal activities.",
+    "questions_to_ask_doctor": [
+      "Can we review my inhaler technique and see if a spacer would help me?",
+      "Can we write down an official Asthma Action Plan (Green/Yellow/Red zones)?",
+      "Are my asthma symptoms well controlled on my current preventer medication?",
+      "Should I get the annual influenza and pneumococcal vaccines?"
+    ]
+  },
+  {
+    "id": "migraine",
+    "name": "Migraine Headache",
+    "category": "Neurological",
+    "overview": "Migraine is a neurological disorder characterized by recurrent attacks of moderate to severe throbbing headache, often unilateral, accompanied by nausea and sensitivity to light and sound.",
+    "general_precautions": [
+      "Maintain a headache diary to track potential triggers: irregular sleep, missed meals, specific foods (aged cheeses, MSG, artificial sweeteners), dehydration, and hormonal shifts.",
+      "Rest in a quiet, dark, well-ventilated room when an attack begins.",
+      "Apply a cold pack or soothing compress to your forehead or the back of your neck."
+    ],
+    "warning_signs": [
+      "Sudden, explosive 'thunderclap' headache reaching maximum intensity in seconds (requires immediate emergency evaluation to rule out subarachnoid hemorrhage).",
+      "Headache accompanied by high fever, stiff neck, confusion, seizure, or focal neurological weakness.",
+      "First migraine-like attack occurring after age 50 or a headache pattern that changes dramatically."
+    ],
+    "lifestyle_considerations": [
+      "Maintain consistent sleep schedules: going to bed and waking up at the same time every day.",
+      "Never skip meals: hypoglycemia is a frequent migraine precipitator.",
+      "Stay well hydrated throughout the day."
+    ],
+    "medication_cautions": [
+      "Take prescribed acute migraine medications (such as triptans or approved analgesics) at the earliest sign of headache onset for greatest effectiveness.",
+      "Beware of Medication Overuse Headache (rebound headaches): using acute pain relievers more than 10-15 days per month can paradoxical worsen headache frequency.",
+      "Consult your doctor if you experience more than 4 headache days a month to discuss preventive medications."
+    ],
+    "when_to_seek_care": "Seek emergency care for sudden worst-ever headache, headache with weakness or neck stiffness. Seek doctor appointment if attacks are becoming more frequent, lasting longer than 72 hours, or interfering with daily life.",
+    "questions_to_ask_doctor": [
+      "Am I a candidate for daily preventive migraine therapy?",
+      "How can I avoid medication-overuse headaches with my current pain relievers?",
+      "What should I do if my acute medication fails to stop an attack?"
+    ]
+  },
+  {
+    "id": "gerd",
+    "name": "Gastroesophageal Reflux Disease (GERD)",
+    "category": "Gastroenterology",
+    "overview": "GERD occurs when stomach acid and bile repeatedly flow back into the esophagus, causing irritation of the esophageal lining and symptoms like heartburn and regurgitation.",
+    "general_precautions": [
+      "Eat smaller, more frequent meals rather than large, heavy dinners.",
+      "Avoid lying down for at least 2 to 3 hours after eating.",
+      "Elevate the head of your bed by 6 inches (15 cm) using bed risers or a wedge pillow (extra flat pillows alone do not properly elevate the torso)."
+    ],
+    "warning_signs": [
+      "Difficulty swallowing (dysphagia) or feeling food get stuck in your chest.",
+      "Unintended significant weight loss or loss of appetite.",
+      "Vomiting blood or black, tarry bowel movements.",
+      "Chest pain that radiates to your left arm or jaw (always evaluate as potential cardiac emergency first)."
+    ],
+    "lifestyle_considerations": [
+      "Limit common food triggers: highly fatty or fried foods, citrus, tomatoes, chocolate, peppermint, coffee, and carbonated beverages.",
+      "Avoid tight-fitting belts or waistbands that put physical pressure on your abdomen.",
+      "Smoking cessation and weight management significantly relieve lower esophageal sphincter pressure."
+    ],
+    "medication_cautions": [
+      "Proton pump inhibitors (PPIs) such as omeprazole or pantoprazole are most effective when taken 30-60 minutes before the first meal of the day.",
+      "Antacids provide fast, temporary relief of mild symptoms but do not heal esophageal inflammation.",
+      "Review other medications (like NSAIDs, iron supplements, bisphosphonates) with your doctor as they can irritate the esophagus."
+    ],
+    "when_to_seek_care": "Seek immediate evaluation for chest pain with sweating/breathlessness. Seek gastroenterologist consultation if symptoms persist despite 4-8 weeks of over-the-counter therapy, or if experiencing difficulty swallowing.",
+    "questions_to_ask_doctor": [
+      "Do I need an upper endoscopy (EGD) to evaluate my esophagus?",
+      "How long should I remain on acid-suppressing medication?",
+      "What dietary changes are most proven to help my symptoms?"
+    ]
+  }
+]
+

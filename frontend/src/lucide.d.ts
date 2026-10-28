@@ -1,0 +1,53 @@
+declare module 'lucide-react' {
+  import * as React from 'react';
+  export interface LucideProps extends React.SVGProps<SVGSVGElement> {
+    size?: string | number;
+    color?: string;
+    strokeWidth?: string | number;
+  }
+  export type LucideIcon = React.FC<LucideProps>;
+  export const Activity: LucideIcon;
+  export const AlertCircle: LucideIcon;
+  export const AlertTriangle: LucideIcon;
+  export const ArrowLeft: LucideIcon;
+  export const ArrowRight: LucideIcon;
+  export const Bell: LucideIcon;
+  export const BookOpen: LucideIcon;
+  export const Calendar: LucideIcon;
+  export const CalendarCheck: LucideIcon;
+  export const CheckCircle2: LucideIcon;
+  export const ChevronRight: LucideIcon;
+  export const Clock: LucideIcon;
+  export const Copy: LucideIcon;
+  export const Download: LucideIcon;
+  export const Edit2: LucideIcon;
+  export const Edit3: LucideIcon;
+  export const ExternalLink: LucideIcon;
+  export const FileText: LucideIcon;
+  export const Heart: LucideIcon;
+  export const HeartPulse: LucideIcon;
+  export const HelpCircle: LucideIcon;
+  export const Info: LucideIcon;
+  export const LayoutDashboard: LucideIcon;
+  export const Lock: LucideIcon;
+  export const Menu: LucideIcon;
+  export const Phone: LucideIcon;
+  export const Pill: LucideIcon;
+  export const Plus: LucideIcon;
+  export const Printer: LucideIcon;
+  export const RefreshCw: LucideIcon;
+  export const RotateCcw: LucideIcon;
+  export const Search: LucideIcon;
+  export const Server: LucideIcon;
+  export const Settings: LucideIcon;
+  export const Share2: LucideIcon;
+  export const ShieldAlert: LucideIcon;
+  export const ShieldCheck: LucideIcon;
+  export const Sparkles: LucideIcon;
+  export const Stethoscope: LucideIcon;
+  export const Trash2: LucideIcon;
+  export const X: LucideIcon;
+  export const XCircle: LucideIcon;
+  const icons: Record<string, LucideIcon>;
+  export default icons;
+}

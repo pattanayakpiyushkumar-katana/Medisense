@@ -1,0 +1,518 @@
+[
+  {
+    "id": "paracetamol",
+    "name": "Paracetamol",
+    "active_ingredient": "Paracetamol (Acetaminophen)",
+    "brand_names": ["Dolo 650", "Calpol", "Crocin", "Tylenol", "Panadol"],
+    "category": "Analgesic & Antipyretic",
+    "strengths_common": ["500 mg", "650 mg", "120 mg/5ml syrup"],
+    "common_uses": [
+      "Relief of mild to moderate pain (headache, toothache, muscle aches)",
+      "Reduction of fever associated with colds, viral infections, or vaccinations"
+    ],
+    "how_it_works_simple": "Paracetamol works mainly in the central nervous system to block chemical messengers (prostaglandins) that signal pain and to regulate the brain's temperature control center to lower fever.",
+    "common_side_effects": [
+      "Mild nausea (rare at standard recommended doses)",
+      "Mild stomach upset (rare)"
+    ],
+    "serious_warning_signs": [
+      "Yellowing of skin or eyes (jaundice - sign of liver injury)",
+      "Severe rash, itching, hives, or swelling of the face/throat",
+      "Severe persistent abdominal pain, dark urine, or extreme fatigue",
+      "Suspected overdose (accidental double dosing or combining with other cold medicines containing paracetamol)"
+    ],
+    "important_precautions": [
+      "Maximum recommended adult dose is typically 4,000 mg in 24 hours from all sources combined; in some guidelines or liver conditions, lower limits (2,000-3,000 mg) apply.",
+      "Never combine with other medications without checking their ingredients: many 'all-in-one' cold/cough syrups already contain paracetamol.",
+      "Avoid chronic alcohol consumption while taking this medicine as it significantly elevates liver toxicity risk."
+    ],
+    "contraindications_and_interactions": [
+      "Contraindicated in severe active liver disease or known hypersensitivity to paracetamol.",
+      "Caution with blood thinners (Warfarin) during prolonged daily use (may slightly increase bleeding risk).",
+      "Alcohol enhances hepatic toxicity risk."
+    ],
+    "food_instructions": "Can be taken with or without food. Taking it with a glass of water is recommended. Taking it after food may reduce mild stomach sensitivity.",
+    "storage_info": "Store below 25°C to 30°C in a dry place protected from direct heat, sunlight, and moisture. Keep out of reach of children.",
+    "special_considerations": {
+      "children": "Pediatric dosing must strictly follow weight-based guidance (10-15 mg/kg per dose) provided by a doctor or pediatric label. Never use adult tablets for infants.",
+      "pregnancy": "Widely used as the primary pain/fever reliever in pregnancy when clinically needed, at the lowest effective dose for the shortest duration.",
+      "older_adults": "Generally well tolerated; lower daily ceilings may be advised if frail or with compromised hepatic/renal function.",
+      "liver_conditions": "Requires strict medical consultation before use due to risk of hepatotoxicity."
+    },
+    "questions_to_ask_doctor": [
+      "What is the exact maximum daily dose safe for my liver and health profile?",
+      "Can I take this alongside my other prescribed medications?",
+      "If my fever does not subside within 3 days, what should be my next step?"
+    ],
+    "sources": [
+      "WHO Model List of Essential Medicines (23rd List, 2023)",
+      "CDSCO / National List of Essential Medicines (India)",
+      "NHS UK Medicines Guidance & FDA Drug Information"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "ibuprofen",
+    "name": "Ibuprofen",
+    "active_ingredient": "Ibuprofen",
+    "brand_names": ["Brufen", "Advil", "Motrin", "Ibugesic"],
+    "category": "Non-Steroidal Anti-Inflammatory Drug (NSAID)",
+    "strengths_common": ["200 mg", "400 mg", "600 mg", "100 mg/5ml suspension"],
+    "common_uses": [
+      "Relief of pain and swelling from arthritis, dental procedures, menstrual cramps, and minor injuries",
+      "Short-term fever reduction in adults and children over 3 months / 5 kg"
+    ],
+    "how_it_works_simple": "Ibuprofen blocks cyclooxygenase (COX) enzymes, preventing the body from producing prostaglandins that cause pain, swelling, and fever.",
+    "common_side_effects": [
+      "Indigestion, stomach burn, or nausea",
+      "Mild dizziness or headache",
+      "Abdominal discomfort"
+    ],
+    "serious_warning_signs": [
+      "Black, tarry stools or vomiting blood (signs of stomach/intestinal bleeding)",
+      "Sudden shortness of breath, chest pain, or weakness on one side",
+      "Significant decrease in urination or swelling of feet/ankles (kidney warning sign)",
+      "Severe allergic skin reaction with blistering or facial swelling"
+    ],
+    "important_precautions": [
+      "Always take with or immediately after food or milk to protect the stomach lining.",
+      "Use the lowest effective dose for the shortest duration necessary.",
+      "Do not combine with other NSAIDs (e.g., Aspirin, Naproxen, Diclofenac) without explicit physician advice."
+    ],
+    "contraindications_and_interactions": [
+      "Contraindicated in active peptic ulcer disease, severe heart failure, severe kidney impairment, or history of asthma triggered by NSAIDs.",
+      "Interacts with blood pressure medications (may reduce their efficacy), anticoagulants/blood thinners, and Lithium.",
+      "Avoid concurrent alcohol use as it increases gastrointestinal bleeding danger."
+    ],
+    "food_instructions": "Take with or right after meals or with a glass of milk to reduce stomach irritation. Do not lie down immediately after swallowing.",
+    "storage_info": "Store at room temperature (15°C - 30°C) away from excess moisture and direct sunlight. Keep tightly closed.",
+    "special_considerations": {
+      "children": "Pediatric formulation must be dosed strictly by body weight. Avoid in dehydrated children or infants under 3 months.",
+      "pregnancy": "Avoid during pregnancy, particularly during the third trimester (may cause premature closure of ductus arteriosus and kidney issues in the fetus).",
+      "older_adults": "Higher risk of gastrointestinal bleeding, fluid retention, and kidney strain. Physician monitoring recommended.",
+      "asthma": "A subset of people with asthma have NSAID-sensitive bronchospasm; use caution."
+    },
+    "questions_to_ask_doctor": [
+      "Is an NSAID safe for my kidneys, blood pressure, and stomach?",
+      "Should I take a stomach protector (like an antacid or PPI) while on this medication?",
+      "How many days maximum should I take this for my acute pain?"
+    ],
+    "sources": [
+      "British National Formulary (BNF)",
+      "FDA Prescribing Information - Ibuprofen",
+      "CDSCO Indian Drug Compendium"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "metformin",
+    "name": "Metformin",
+    "active_ingredient": "Metformin Hydrochloride",
+    "brand_names": ["Glycomet", "Glucophage", "Obimet", "Riomet"],
+    "category": "Oral Antidiabetic (Biguanide)",
+    "strengths_common": ["500 mg", "850 mg", "1000 mg", "500 mg ER", "1000 mg ER"],
+    "common_uses": [
+      "First-line management of Type 2 Diabetes Mellitus to lower blood glucose levels",
+      "Often used off-label under gynecological supervision for Polycystic Ovary Syndrome (PCOS)"
+    ],
+    "how_it_works_simple": "Metformin reduces the amount of glucose the liver releases into the bloodstream, improves insulin sensitivity in muscles, and slightly delays intestinal sugar absorption.",
+    "common_side_effects": [
+      "Diarrhea, bloating, gas, or soft stools (especially when starting)",
+      "Metallic taste in the mouth",
+      "Nausea or stomach cramps"
+    ],
+    "serious_warning_signs": [
+      "Lactic acidosis (very rare but dangerous): severe weakness, muscle pain, rapid breathing, extreme coldness, slow heartbeat",
+      "Severe hypoglycemia if combined with sulfonylureas or insulin",
+      "Symptoms of Vitamin B12 deficiency (numbness/tingling in hands/feet, memory issues) with long-term use"
+    ],
+    "important_precautions": [
+      "Take with meals to minimize gastrointestinal discomfort.",
+      "If taking Extended Release (ER/SR) tablets, swallow whole; do not crush or chew.",
+      "Must be temporarily stopped before contrast imaging dye scans or major surgeries with doctor guidance."
+    ],
+    "contraindications_and_interactions": [
+      "Contraindicated in severe chronic kidney disease (eGFR < 30 mL/min), acute metabolic acidosis, severe heart failure, or severe hepatic impairment.",
+      "Avoid excessive alcohol intake as it raises lactic acidosis risk."
+    ],
+    "food_instructions": "Take with meals (usually breakfast and/or dinner) to minimize gastrointestinal upset. Extended release is often taken with the evening meal.",
+    "storage_info": "Store at 20°C to 25°C away from humidity and light.",
+    "special_considerations": {
+      "children": "Approved in Type 2 Diabetes for children aged 10 and older under specialist guidance.",
+      "pregnancy": "Used under specialist obstetric advice; insulin remains the gold standard, but metformin is used in select gestational diabetes cases.",
+      "older_adults": "Kidney function (eGFR) should be checked regularly before and during therapy.",
+      "liver_conditions": "Avoid in patients with severe hepatic impairment due to risk of lactic acidosis."
+    },
+    "questions_to_ask_doctor": [
+      "How often should my HbA1c and kidney function (creatinine/eGFR) be monitored?",
+      "Do I need to check my Vitamin B12 levels periodically?",
+      "What should I do if I am scheduled for an X-ray or CT scan with contrast dye?"
+    ],
+    "sources": [
+      "American Diabetes Association (ADA) Standards of Care 2024",
+      "CDSCO National List of Essential Medicines",
+      "NICE Guidelines (NG28) Type 2 Diabetes Management"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "amlodipine",
+    "name": "Amlodipine",
+    "active_ingredient": "Amlodipine Besylate",
+    "brand_names": ["Amlong", "Norvasc", "Amtas", "Amlip"],
+    "category": "Antihypertensive (Calcium Channel Blocker)",
+    "strengths_common": ["2.5 mg", "5 mg", "10 mg"],
+    "common_uses": [
+      "Management of high blood pressure (hypertension)",
+      "Prevention and management of chronic stable chest pain (angina pectoris)"
+    ],
+    "how_it_works_simple": "Amlodipine relaxes and widens the smooth muscles of blood vessel walls, allowing blood to flow more easily and reducing the strain on your heart.",
+    "common_side_effects": [
+      "Swelling of the ankles or lower legs (peripheral edema)",
+      "Mild dizziness, especially when standing up quickly",
+      "Flushing or feeling warm",
+      "Tiredness or palpitations"
+    ],
+    "serious_warning_signs": [
+      "Severe or worsening chest pain or irregular heartbeat",
+      "Severe dizziness, fainting, or marked hypotension",
+      "Significant swelling of lower extremities affecting walking"
+    ],
+    "important_precautions": [
+      "Do not stop taking this medication abruptly without consulting your doctor, as blood pressure may spike.",
+      "Avoid consuming large amounts of grapefruit or grapefruit juice, as it can increase blood levels of amlodipine.",
+      "Stand up gradually from sitting or lying down to prevent lightheadedness."
+    ],
+    "contraindications_and_interactions": [
+      "Severe hypotension, cardiogenic shock, or severe aortic stenosis.",
+      "Interacts with Simvastatin (limit simvastatin dose to 20 mg daily), antifungal medications, and Clarithromycin."
+    ],
+    "food_instructions": "Can be taken with or without food, consistently at the same time every day. Avoid large quantities of grapefruit juice.",
+    "storage_info": "Store below 25°C in a dry place. Protect from moisture and direct light.",
+    "special_considerations": {
+      "children": "Approved for children 6-17 years old with hypertension under pediatric cardiology guidance.",
+      "pregnancy": "Consult doctor immediately; alternative antihypertensives (like Labetalol or Nifedipine) are often preferred during pregnancy.",
+      "older_adults": "Starting with a lower dose (e.g., 2.5 mg) is often recommended due to slower hepatic clearance.",
+      "liver_conditions": "Titrate cautiously in patients with severe hepatic impairment."
+    },
+    "questions_to_ask_doctor": [
+      "What target blood pressure numbers should I be tracking at home?",
+      "If I notice swelling in my ankles, should we adjust the dosage?",
+      "What should I do if I accidentally miss a morning dose?"
+    ],
+    "sources": [
+      "AHA/ACC Hypertension Clinical Practice Guidelines",
+      "CDSCO Drug Monograph - Amlodipine",
+      "FDA Prescribing Information - Norvasc"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "amoxicillin",
+    "name": "Amoxicillin",
+    "active_ingredient": "Amoxicillin Trihydrate",
+    "brand_names": ["Mox", "Amoxil", "Novamox", "Augmentin (combination)"],
+    "category": "Antibiotic (Penicillin group)",
+    "strengths_common": ["250 mg", "500 mg", "125 mg/5ml suspension", "250 mg/5ml suspension"],
+    "common_uses": [
+      "Treatment of bacterial infections such as middle ear infections, bacterial sinusitis, throat infections, chest infections, and urinary tract infections.",
+      "Note: Amoxicillin DOES NOT treat viral infections such as colds, flu, or viral sore throats."
+    ],
+    "how_it_works_simple": "Amoxicillin prevents susceptible bacteria from constructing their protective cell walls, leading to the destruction of the bacterial cells.",
+    "common_side_effects": [
+      "Mild diarrhea or loose stools",
+      "Nausea or vomiting",
+      "Mild stomach pain or skin rash"
+    ],
+    "serious_warning_signs": [
+      "Immediate allergic reaction: wheezing, tight chest, swelling of face/lips/tongue, difficulty breathing",
+      "Severe, persistent watery or bloody diarrhea (signs of Clostridioides difficile colitis), even weeks after finishing",
+      "Yellowing of skin or eyes, dark urine"
+    ],
+    "important_precautions": [
+      "Finish the entire prescribed course even if symptoms disappear after 2-3 days. Incomplete courses promote antibiotic resistance.",
+      "Never take leftover antibiotics or share with family members.",
+      "Inform healthcare providers immediately if you have any history of penicillin or beta-lactam allergies."
+    ],
+    "contraindications_and_interactions": [
+      "Strictly contraindicated in anyone with a documented history of penicillin allergy or severe beta-lactam hypersensitivity.",
+      "May interact with Allopurinol (increases rash risk) and Methotrexate (increases methotrexate toxicity)."
+    ],
+    "food_instructions": "Can be taken before, during, or after food. Space doses evenly throughout the day as advised by your doctor.",
+    "storage_info": "Capsules/tablets: store below 25°C in a dry place. Reconstituted liquid suspension must be kept in a refrigerator (2-8°C) and discarded after 7-14 days as stated on bottle.",
+    "special_considerations": {
+      "children": "Commonly prescribed in pediatrics using weight-based dosing. Shake liquid well before each dose and use a measured syringe.",
+      "pregnancy": "Considered generally safe in pregnancy when clinically needed, after ruling out penicillin allergies.",
+      "older_adults": "Dose adjustment may be necessary if renal function is reduced.",
+      "allergy_history": "Ask explicitly about past rashes or reactions to ampicillin, cephalosporins, or penicillins."
+    },
+    "questions_to_ask_doctor": [
+      "How many days should I continue this antibiotic?",
+      "What probiotic or dietary measures can I take to avoid loose stools?",
+      "What should I do if a rash appears while taking this?"
+    ],
+    "sources": [
+      "WHO Model List of Essential Medicines",
+      "CDC Antibiotic Stewardship Guidelines",
+      "Indian Council of Medical Research (ICMR) Antimicrobial Guidelines"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "cetirizine",
+    "name": "Cetirizine",
+    "active_ingredient": "Cetirizine Hydrochloride",
+    "brand_names": ["Cetzine", "Zyrtec", "Alerid", "Okacet"],
+    "category": "Antihistamine (Second Generation)",
+    "strengths_common": ["5 mg", "10 mg", "5 mg/5ml syrup"],
+    "common_uses": [
+      "Relief of allergy symptoms including allergic rhinitis (sneezing, runny nose, itchy/watery eyes)",
+      "Management of hives (urticaria) and allergic skin itching"
+    ],
+    "how_it_works_simple": "Cetirizine selectively blocks histamine H1 receptors in the body, stopping histamine from triggering swelling, itching, sneezing, and mucous secretion.",
+    "common_side_effects": [
+      "Mild drowsiness or sleepiness (less than 1st generation antihistamines, but still common in some people)",
+      "Dry mouth",
+      "Mild headache or fatigue"
+    ],
+    "serious_warning_signs": [
+      "Severe allergic reaction (rare)",
+      "Urinary retention or difficulty passing urine",
+      "Fast or irregular heartbeat"
+    ],
+    "important_precautions": [
+      "Be cautious when driving or operating machinery until you know how this medication affects your alertness.",
+      "Avoid combining with alcohol or sedative sleep aids as drowsiness will be amplified."
+    ],
+    "contraindications_and_interactions": [
+      "Contraindicated in severe end-stage renal disease (creatinine clearance < 10 mL/min).",
+      "Additive sedative effects when taken with central nervous system depressants or alcohol."
+    ],
+    "food_instructions": "Can be taken with or without food. Taking it in the evening or before bedtime is often preferred if it causes mild tiredness.",
+    "storage_info": "Store at room temperature below 30°C in a dry place. Keep out of reach of children.",
+    "special_considerations": {
+      "children": "Safe for children over 2 years in syrup or chewable form with weight/age appropriate dose.",
+      "pregnancy": "Considered safe when clinically indicated in consultation with an obstetrician.",
+      "older_adults": "Start with 5 mg daily if kidney function is reduced.",
+      "renal_conditions": "Dose frequency must be adjusted based on creatinine clearance."
+    },
+    "questions_to_ask_doctor": [
+      "Should I take this daily throughout allergy season or only when symptoms strike?",
+      "Does this interfere with any allergy skin prick tests I might undergo?",
+      "Can I take this at night to prevent morning sneezing?"
+    ],
+    "sources": [
+      "FDA Prescribing Information - Zyrtec",
+      "CDSCO Indian Pharmacopoeia",
+      "NHS UK Antihistamine Guidance"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "omeprazole",
+    "name": "Omeprazole",
+    "active_ingredient": "Omeprazole Magnesium",
+    "brand_names": ["Omez", "Prilosec", "Ocid", "Losec"],
+    "category": "Proton Pump Inhibitor (PPI)",
+    "strengths_common": ["20 mg", "40 mg"],
+    "common_uses": [
+      "Treatment of gastroesophageal reflux disease (GERD), heartburn, and acid indigestion",
+      "Healing and prevention of gastric and duodenal ulcers",
+      "Part of combination therapy to eradicate Helicobacter pylori bacteria"
+    ],
+    "how_it_works_simple": "Omeprazole binds irreversibly to the proton pumps in the stomach lining, substantially decreasing the production of stomach acid.",
+    "common_side_effects": [
+      "Headache",
+      "Diarrhea, constipation, or flatulence",
+      "Abdominal pain or nausea"
+    ],
+    "serious_warning_signs": [
+      "Severe persistent watery diarrhea (associated with Clostridioides difficile)",
+      "Unexplained bone pain or fractures (long-term high-dose risk)",
+      "Low magnesium symptoms: muscle spasms, tremors, irregular heartbeats",
+      "Unexplained weight loss or difficulty swallowing (require urgent doctor review to exclude serious gastric disease)"
+    ],
+    "important_precautions": [
+      "Best taken 30 to 60 minutes before breakfast on an empty stomach.",
+      "Swallow capsules whole with water; do not crush, bite, or chew the delayed-release pellets inside.",
+      "Should not be taken continuously for prolonged periods without medical review."
+    ],
+    "contraindications_and_interactions": [
+      "Hypersensitivity to proton pump inhibitors.",
+      "Interacts with Clopidogrel (may reduce antiplatelet effect; Pantoprazole is often favored instead), Diazepam, and Methotrexate."
+    ],
+    "food_instructions": "Take first thing in the morning 30-60 minutes before food for maximum effectiveness.",
+    "storage_info": "Store below 25°C in a dry place. Protect from moisture and heat.",
+    "special_considerations": {
+      "children": "Used in pediatrics under specialist guidance for severe reflux or ulcer disease.",
+      "pregnancy": "Widely used in pregnancy when dietary and antacid measures fail, under doctor advice.",
+      "older_adults": "Check bone health and Vitamin B12 levels if used for more than 12 months.",
+      "long_term_use": "Regular medical review recommended every 6-12 months."
+    },
+    "questions_to_ask_doctor": [
+      "How long should I remain on this medication before trying to taper off?",
+      "Are there dietary and lifestyle adjustments that can help me manage acid reflux?",
+      "Does this affect my absorption of calcium, iron, or vitamin B12?"
+    ],
+    "sources": [
+      "American College of Gastroenterology (ACG) Guidelines",
+      "CDSCO Drug Monograph - Omeprazole",
+      "NICE Clinical Guideline on Dyspepsia and GERD"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "salbutamol",
+    "name": "Salbutamol (Albuterol)",
+    "active_ingredient": "Salbutamol Sulphate",
+    "brand_names": ["Ventolin", "Asthalin", "ProAir", "Aerolin"],
+    "category": "Short-Acting Beta-2 Agonist (SABA) Bronchodilator",
+    "strengths_common": ["100 mcg per puff inhaler", "2 mg tablet", "4 mg tablet", "2.5 mg respule for nebulizer"],
+    "common_uses": [
+      "Rapid relief of acute bronchospasm, asthma attacks, and wheezing",
+      "Prevention of exercise-induced bronchospasm",
+      "Reversible airway obstruction in Chronic Obstructive Pulmonary Disease (COPD)"
+    ],
+    "how_it_works_simple": "Salbutamol stimulates beta-2 adrenergic receptors in bronchial smooth muscles, causing them to relax quickly and opening up constricted airways within 5 to 15 minutes.",
+    "common_side_effects": [
+      "Mild fine hand tremors or shakiness",
+      "Palpitations or slightly elevated heart rate",
+      "Nervousness, headache, or mild throat irritation"
+    ],
+    "serious_warning_signs": [
+      "Paradoxical bronchospasm (sudden worsening of wheezing immediately after inhaling)",
+      "Severe chest pain or irregular heartbeat",
+      "Inhaler fails to provide relief or asthma attack worsens rapidly (EMERGENCY - seek hospital immediately)",
+      "Needing the reliever inhaler more than 2-3 times a week (indicates asthma is poorly controlled and maintenance therapy needs review)"
+    ],
+    "important_precautions": [
+      "Always carry your rescue inhaler with you.",
+      "Check inhaler technique with a doctor or nurse; consider using a spacer device for better lung delivery.",
+      "Salbutamol is a 'reliever', not a 'preventer'; it treats symptoms but does not treat underlying airway inflammation."
+    ],
+    "contraindications_and_interactions": [
+      "Avoid concurrent non-selective beta-blockers (e.g., Propranolol) as they can cause severe bronchoconstriction.",
+      "Caution with cardiac arrhythmias, hyperthyroidism, and hypertension."
+    ],
+    "food_instructions": "Inhalers can be used regardless of meal times. Rinse mouth with water after use if combined with steroid or to prevent dry mouth.",
+    "storage_info": "Store below 30°C away from frost and direct sunlight. Canister contains pressurized liquid; do not puncture or burn.",
+    "special_considerations": {
+      "children": "Use a spacer device with a mask for infants and young children to ensure accurate delivery.",
+      "pregnancy": "Considered safe and critical to maintain maternal oxygenation during asthma attacks.",
+      "older_adults": "Watch for tachycardia and tremor, especially in those with coronary artery disease.",
+      "exercise": "Take 1-2 puffs 15 minutes prior to physical exertion if advised for exercise-induced bronchospasm."
+    },
+    "questions_to_ask_doctor": [
+      "Am I using my inhaler technique correctly, and would a spacer help me?",
+      "If I am using this rescue inhaler frequently, do I need a daily preventer inhaler?",
+      "What is my personalized Asthma Action Plan during an acute flare-up?"
+    ],
+    "sources": [
+      "Global Initiative for Asthma (GINA) 2024 Report",
+      "CDSCO National List of Essential Medicines",
+      "British Thoracic Society (BTS) Asthma Management Guidelines"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "aspirin",
+    "name": "Aspirin",
+    "active_ingredient": "Acetylsalicylic Acid",
+    "brand_names": ["Disprin", "Ecosprin", "Bayer Aspirin", "Aspro"],
+    "category": "Antiplatelet & NSAID",
+    "strengths_common": ["75 mg", "150 mg", "300 mg", "500 mg"],
+    "common_uses": [
+      "Low-dose (75-150 mg): Prevention of secondary cardiovascular events (heart attack, ischemic stroke, stent thrombosis)",
+      "High-dose (300-500 mg): Short-term relief of pain and fever"
+    ],
+    "how_it_works_simple": "At low doses, Aspirin permanently inhibits platelet COX-1 enzymes, preventing platelets from clumping together to form blood clots. At higher doses, it also reduces inflammation and pain.",
+    "common_side_effects": [
+      "Mild indigestion or heartburn",
+      "Increased bleeding tendency (easy bruising, minor cuts bleed longer)"
+    ],
+    "serious_warning_signs": [
+      "Black tarry stools, vomiting blood or coffee-ground material",
+      "Signs of internal bleeding or unexplained severe weakness",
+      "Ringing in ears (tinnitus) or hearing loss (sign of high salicylate toxicity)",
+      "NEVER give to children or teenagers with viral infections due to danger of Reye's Syndrome (fatal liver and brain swelling)"
+    ],
+    "important_precautions": [
+      "Never give aspirin to anyone under 18 years of age without explicit pediatric specialist advice (Reye's syndrome warning).",
+      "Take low-dose gastro-resistant (enteric-coated) tablets with a full glass of water, with or after food.",
+      "Inform dentists and surgeons you are taking aspirin prior to any procedure."
+    ],
+    "contraindications_and_interactions": [
+      "Active peptic ulcer, bleeding disorders, severe liver or renal failure.",
+      "Contraindicated in aspirin-exacerbated respiratory disease (asthma).",
+      "Interacts strongly with other anticoagulants, NSAIDs, and SSRI antidepressants."
+    ],
+    "food_instructions": "Take with food or a large glass of water. Swallow enteric-coated tablets whole; do not crush.",
+    "storage_info": "Store below 25°C in a dry place. Protect from moisture (salicylates degrade rapidly in humid conditions).",
+    "special_considerations": {
+      "children": "STRICTLY CONTRAINDICATED in children/adolescents under 18 years with fever or viral illness (Reye's syndrome).",
+      "pregnancy": "Low-dose aspirin is sometimes prescribed by obstetric specialists to prevent pre-eclampsia; high doses are avoided.",
+      "older_adults": "Increased vulnerability to gastric mucosal erosion and gastrointestinal bleeding.",
+      "pre_surgery": "Surgeon must advise on whether and when to pause prior to operative procedures."
+    },
+    "questions_to_ask_doctor": [
+      "Is my prescribed aspirin strictly for heart protection or pain relief?",
+      "Do I need a gastroprotective medicine while on daily aspirin?",
+      "What signs of abnormal bleeding should I watch for?"
+    ],
+    "sources": [
+      "American College of Cardiology (ACC) / AHA Guidelines",
+      "WHO Model List of Essential Medicines",
+      "CDSCO National Compendium"
+    ],
+    "last_checked_date": "2026-10-15"
+  },
+  {
+    "id": "ors",
+    "name": "Oral Rehydration Salts (ORS)",
+    "active_ingredient": "Sodium Chloride, Potassium Chloride, Sodium Citrate, Anhydrous Dextrose",
+    "brand_names": ["Electral", "Prolyte ORS", "WHO-ORS", "Pedialyte"],
+    "category": "Electrolyte Replenisher & Rehydration Formulation",
+    "strengths_common": ["21.8 g sachet (for 1 Liter)", "4.2 g sachet (for 200 ml)"],
+    "common_uses": [
+      "Prevention and treatment of dehydration caused by acute diarrhea, gastroenteritis, vomiting, or heavy sweating."
+    ],
+    "how_it_works_simple": "ORS uses the glucose-sodium co-transport mechanism in the small intestine: glucose actively carries sodium and water across the intestinal wall into the bloodstream even during severe diarrheal illness.",
+    "common_side_effects": [
+      "Nausea or vomiting if drunk too rapidly (sip slowly in small amounts instead)"
+    ],
+    "serious_warning_signs": [
+      "Severe dehydration signs: lethargy, unconsciousness, sunken eyes, skin pinch returns very slowly (>2 seconds), inability to drink",
+      "No urination for more than 6-8 hours in an infant or child (requires immediate hospital attention)",
+      "Persistent vomiting preventing any fluid retention"
+    ],
+    "important_precautions": [
+      "MUST be dissolved in the exact amount of clean drinking water specified on the packet (e.g., exactly 1 Liter or 200 ml). Never add extra sugar or salt, and do not mix with juice, milk, or soda.",
+      "Discard any reconstituted solution that is older than 24 hours.",
+      "Drink in frequent small sips rather than gulping."
+    ],
+    "contraindications_and_interactions": [
+      "Severe intractable vomiting requiring intravenous fluid resuscitation.",
+      "Intestinal obstruction, bowel perforation, or severe renal failure (hyperkalemia risk)."
+    ],
+    "food_instructions": "Can be consumed throughout the day between or alongside light meals (bananas, rice, applesauce, toast - BRAT diet). Continued breastfeeding is vital in infants.",
+    "storage_info": "Store unmixed packets in a cool, dry place. Reconstituted solution must be discarded after 24 hours.",
+    "special_considerations": {
+      "children": "Life-saving first-line intervention in pediatric diarrhea. Give a teaspoon every 1-2 minutes if the child is vomiting.",
+      "pregnancy": "Safe and recommended for dehydration during gastroenteritis or morning sickness.",
+      "older_adults": "Elderly individuals dehydrate rapidly; early administration prevents acute renal failure.",
+      "exact_dilution": "Critical: incorrect dilution (too little water) makes the solution hypertonic and can worsen diarrhea."
+    },
+    "questions_to_ask_doctor": [
+      "How many liters of ORS should I drink based on my fluid loss?",
+      "When is oral rehydration no longer sufficient and IV fluids are needed?",
+      "Should I also take supplemental Zinc (standard WHO recommendation in pediatric diarrhea)?"
+    ],
+    "sources": [
+      "WHO/UNICEF Joint Statement on Clinical Management of Acute Diarrhoea",
+      "Indian Academy of Pediatrics (IAP) Guidelines on Dehydration",
+      "CDSCO National List of Essential Medicines"
+    ],
+    "last_checked_date": "2026-10-15"
+  }
+]
+
