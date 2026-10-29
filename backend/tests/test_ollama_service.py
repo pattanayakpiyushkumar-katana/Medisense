@@ -296,3 +296,4 @@ def test_api_returns_504_on_timeout():
         assert resp.status_code == 504
         data = resp.json()
         assert "timed out after 30.0s" in data["detail"]
+

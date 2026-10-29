@@ -546,3 +546,4 @@ def generate_doctor_summary_with_gemma(
         questions_for_doctor=questions[:5],
         missing_information=missing
     )
+

@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MedicationProvider } from './context/MedicationContext';
-import { EmergencyBanner } from './components/common/EmergencyBanner';
 import { DisclaimerBanner } from './components/common/DisclaimerBanner';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
@@ -22,9 +21,6 @@ export function App() {
     <MedicationProvider>
       <BrowserRouter>
         <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased font-sans selection:bg-teal-100 selection:text-teal-900">
-          {/* Emergency Safety Alert Top Bar */}
-          <EmergencyBanner />
-
           {/* Clinical Educational Disclaimer */}
           <DisclaimerBanner />
 

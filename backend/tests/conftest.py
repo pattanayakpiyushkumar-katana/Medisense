@@ -129,3 +129,4 @@ def mock_ollama_default(request):
 
     with patch("requests.post", side_effect=fake_post):
         yield
+
