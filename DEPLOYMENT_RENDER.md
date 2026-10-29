@@ -160,3 +160,4 @@ Once Render finishes deploying:
    - **For permanent persistence:** You can add a **Free PostgreSQL Database** in Render Dashboard with 1 click, copy the *Internal Database URL*, and set it as `DATABASE_URL` in your backend environment variables. Medisense's SQLAlchemy models will automatically initialize tables on PostgreSQL!
 3. **Connecting External AI API:**
    - To connect Gemini or OpenAI, simply add `AI_PROVIDER=gemini` and `AI_API_KEY=your_key` in the Render backend environment variables. The clinical safety rules will remain active as the primary guardian.
+

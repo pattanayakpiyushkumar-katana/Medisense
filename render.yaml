@@ -44,3 +44,4 @@ services:
           type: web
           name: medisense-backend
           property: host
+
