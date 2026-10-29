@@ -10,8 +10,12 @@ class Settings:
     ENV: str = os.getenv("MEDISENSE_ENV", "development")
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./medisense.db")
     
-    # AI Provider: "demo" (deterministic clinically safe engine), "gemini", or "openai"
-    AI_PROVIDER: str = os.getenv("AI_PROVIDER", "demo").lower()
+    # AI Model & Provider Configuration
+    # AI_PROVIDER: "ollama" (Google Gemma 3:4B via Ollama) or "demo" (deterministic offline rule engine)
+    AI_PROVIDER: str = os.getenv("AI_PROVIDER", "ollama").lower()
+    AI_MODEL: str = os.getenv("AI_MODEL", "gemma3:4b")
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    OLLAMA_TIMEOUT_SECONDS: float = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "30.0"))
     AI_API_KEY: str = os.getenv("AI_API_KEY", "")
     
     # Emergency numbers
@@ -27,4 +31,3 @@ class Settings:
     ]
 
 settings = Settings()
-

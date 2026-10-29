@@ -36,7 +36,9 @@ def health_check():
     return {
         "status": "healthy",
         "database": "sqlite_ready",
-        "mode": settings.AI_PROVIDER
+        "mode": settings.AI_PROVIDER,
+        "ai_model": settings.AI_MODEL if settings.AI_PROVIDER == "ollama" else None,
+        "ollama_base_url": settings.OLLAMA_BASE_URL if settings.AI_PROVIDER == "ollama" else None,
     }
 
 # Check for frontend build directory (unified deployment support on Render)
@@ -73,7 +75,9 @@ else:
             "name": settings.APP_NAME,
             "version": settings.APP_VERSION,
             "status": "operational",
-            "mode": "demo" if settings.AI_PROVIDER == "demo" else f"ai_connected_{settings.AI_PROVIDER}",
+            "mode": f"ai_connected_{settings.AI_PROVIDER}_{settings.AI_MODEL}" if settings.AI_PROVIDER == "ollama" else settings.AI_PROVIDER,
+            "ai_provider": settings.AI_PROVIDER,
+            "ai_model": settings.AI_MODEL,
             "emergency_contacts": {
                 "india": settings.EMERGENCY_NUMBER_INDIA,
                 "global": settings.EMERGENCY_NUMBER_GLOBAL

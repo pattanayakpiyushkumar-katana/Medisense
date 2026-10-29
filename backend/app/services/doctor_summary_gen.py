@@ -1,9 +1,15 @@
 import uuid
 from typing import List, Optional
 from ..schemas.doctor_summary import DoctorSummaryRequest, DoctorSummaryResponse
+from ..config import settings
 
 def generate_doctor_summary(req: DoctorSummaryRequest) -> DoctorSummaryResponse:
-    # Build natural language patient speaking script
+    # If Ollama is active, generate enhanced consultation brief via Gemma 3:4B
+    if settings.AI_PROVIDER == "ollama":
+        from .ollama_service import generate_doctor_summary_with_gemma
+        return generate_doctor_summary_with_gemma(req)
+
+    # Build natural language patient speaking script (Deterministic fallback/demo engine)
     concern = req.main_concern.strip()
     onset_str = req.onset.strip() if req.onset else "an unspecified time recently"
     prog_str = req.progression.strip() if req.progression else "fluctuating"
@@ -60,4 +66,3 @@ def generate_doctor_summary(req: DoctorSummaryRequest) -> DoctorSummaryResponse:
         questions_for_doctor=questions,
         missing_information=missing
     )
-

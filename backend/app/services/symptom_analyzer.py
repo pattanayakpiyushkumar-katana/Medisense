@@ -254,6 +254,11 @@ def analyze_symptoms(request: SymptomAnalysisRequest) -> SymptomAnalysisResponse
         urgency_explanation = "Based on your description without red flags, your symptoms currently appear consistent with mild, self-limiting issues suitable for supportive self-care and close monitoring."
         when_to_seek = "If symptoms do not improve after 3 to 5 days, or if any escalation warning signs develop."
 
+    # If Ollama provider is configured, analyze symptoms using Gemma 3:4B
+    if settings.AI_PROVIDER == "ollama":
+        from .ollama_service import analyze_symptoms_with_gemma
+        return analyze_symptoms_with_gemma(request, baseline_rule_urgency=urgency_level)
+
     # Extract symptoms from text
     extracted = list(request.selected_symptoms or [])
     lower_desc = request.description.lower()

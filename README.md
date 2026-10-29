@@ -4,30 +4,47 @@
 
 Medisense is a patient-centered health companion web application designed to help ordinary people understand their symptoms, determine appropriate levels of medical care, explore medicines in simple language, maintain daily medication schedules with reminders, and walk into doctor appointments prepared.
 
+Medisense is powered by **Google Gemma 3:4B** (`gemma3:4b`), an institution-approved open-weight medical decision support engine running locally and privately via **Ollama**.
+
 ---
 
 ## 🏥 Clinical Safety & AI Guardrails Notice
 
 > [!IMPORTANT]
-> **Educational & Supportive Tool Only:** Medisense is designed for health literacy, triage safety, and doctor consultation preparation. It is **NOT** a replacement for a qualified medical doctor and does **NOT** provide definitive medical diagnoses or prescribe new pharmaceutical treatments.
+> **Educational & Supportive Tool Only:** Medisense is designed for health literacy, triage safety, and doctor consultation preparation. It is **NOT** a replacement for a qualified medical doctor and does **NOT** provide definitive medical diagnoses or prescribe new pharmaceutical treatments. Switching to Gemma 3:4B does not make this application a certified medical diagnostic device.
 
 ### Key Clinical Safety Rules:
-1. **Emergency-First Triage:** Hardcoded conservative clinical rules identify acute emergencies (chest pain, stroke symptoms, respiratory distress, anaphylaxis, infant high fever) and trigger immediate emergency advice (**112 in India, 911 in USA**) before and above any generative AI processing.
-2. **Deterministic Clinical Demo Mode:** Operates fully out-of-the-box without requiring an external AI API key or network connectivity. When no API key is supplied, a deterministic clinical rule engine generates realistic, safe responses based on verified medical principles.
-3. **No Fabricated Dosages or Diagnoses:** Drug information is retrieved exclusively from verified pharmaceutical compendiums (WHO Model List of Essential Medicines, CDSCO India, FDA). Unknown patient health history is explicitly labeled as *"Not provided"*, never guessed.
+1. **Emergency-First Triage:** Hardcoded conservative clinical rules identify acute emergencies (crushing chest pain, stroke symptoms, respiratory distress, anaphylaxis, infant high fever) and trigger immediate emergency advice (**112 in India, 911 in USA**) before and above any generative AI processing. Emergency signs bypass the language model entirely and cannot be downgraded.
+2. **Deterministic Clinical Safety Floor:** Even when Gemma 3:4B is active, an independent safety rule layer evaluates the urgency floor. The model is strictly prevented from downgrading an urgent recommendation (such as "See a Doctor Soon") to "Home Care".
+3. **No Fabricated Dosages or Diagnoses:** Drug information is retrieved exclusively from verified pharmaceutical compendiums (WHO Model List of Essential Medicines, CDSCO India, FDA). The model is never permitted to guess or fabricate drug monographs or dosages. Unknown patient health history is explicitly labeled as *"Not provided"*, never guessed.
 4. **Ambiguity Defense:** Vague search queries (e.g. *"painkiller"*, *"cough syrup"*, *"antibiotic"*) trigger proactive clarification prompts asking for the active ingredient or package label before providing guidance.
+5. **Private Backend-Only Inference:** The frontend never connects to Ollama directly and never exposes server credentials or private ports. All inference is mediated, validated, and sanitized by the backend.
+
+---
+
+## 🤖 Target AI Model: Google Gemma 3 (4B) via Ollama
+
+Medisense uses Google's Gemma 3 open-weight model with 4 billion parameters running on a local or private Ollama inference server:
+- **Model:** Google Gemma 3
+- **Model Size:** 4B parameters
+- **Exact Ollama Tag:** `gemma3:4b`
+- **Inference Server:** Ollama
+- **Default Base URL:** `http://localhost:11434`
+- **Chat Endpoint:** `/api/chat`
+- **Structured JSON Mode:** Enforced with Pydantic v2 validation and robust parser recovery.
 
 ---
 
 ## 🚀 Technology Stack
 
+- **AI Engine:** Google Gemma 3:4B (`gemma3:4b`) via Ollama local inference
 - **Frontend:** React 19, TypeScript, Vite 8, React Router v7
 - **Styling:** Tailwind CSS (Accessible contrast, mobile-first responsive design, print-friendly `@media print` support)
 - **UI Icons:** Lucide React
 - **Backend:** Python 3.13, FastAPI, Uvicorn
 - **Data Validation:** Pydantic v2
-- **Database:** SQLite (local zero-configuration storage) with clear migration path to PostgreSQL via SQLAlchemy
-- **Testing:** Pytest & FastAPI TestClient (Backend suite of 13 automated tests) + Vite Production Build Bundler
+- **Database:** SQLite (local zero-configuration storage) with SQLAlchemy ORM
+- **Testing:** Pytest & FastAPI TestClient (29 automated unit and integration tests with mocked Ollama responses) + Vite Production Build Bundler
 
 ---
 
@@ -37,7 +54,7 @@ Medisense is a patient-centered health companion web application designed to hel
 medisense/
 ├── backend/
 │   ├── app/
-│   │   ├── config.py                   # Environment settings & emergency contacts
+│   │   ├── config.py                   # Environment settings & Gemma/Ollama configuration
 │   │   ├── database.py                 # SQLite database engine & schema initialization
 │   │   ├── main.py                     # FastAPI application setup, CORS, router mounts
 │   │   ├── data/
@@ -53,6 +70,7 @@ medisense/
 │   │   │   ├── medication.py           # Reminder schedule & dose history schemas
 │   │   │   └── health.py               # Chronic disease guide schemas
 │   │   ├── services/
+│   │   │   ├── ollama_service.py       # Gemma 3:4B Ollama adapter & structured JSON parser
 │   │   │   ├── triage_rules.py         # Hardcoded conservative emergency triage rules
 │   │   │   ├── symptom_analyzer.py     # Cautious urgency recommendation engine
 │   │   │   ├── medicine_service.py     # Drug catalog search & ambiguity resolver
@@ -64,6 +82,8 @@ medisense/
 │   │       ├── medications.py          # /api/medications (CRUD, dose-logs, reminders)
 │   │       └── health.py               # /api/health/conditions
 │   ├── tests/
+│   │   ├── conftest.py                 # Automated offline test fixtures for Ollama
+│   │   ├── test_ollama_service.py      # Ollama adapter, error states, and safety rule tests
 │   │   ├── test_symptoms.py            # Emergency rules, ordinary symptoms, missing info tests
 │   │   ├── test_medicines.py           # Drug search, ambiguity handling, safety tests
 │   │   ├── test_medications.py         # Reminder persistence, dose tracking tests
@@ -116,230 +136,151 @@ medisense/
 
 ---
 
-## ⚡ Quick Start Guide (Beginner Friendly)
+## ⚡ Setup & Run Instructions for Gemma 3:4B
 
-### Prerequisites:
-- **Python 3.10+** installed on your system.
-- **Node.js 18+** installed on your system.
+Follow these exact steps to run Medisense locally with **Google Gemma 3:4B**:
 
----
+### Step 1: Install Ollama
+Download and install Ollama for your operating system:
+- **Windows / macOS / Linux:** [https://ollama.com/download](https://ollama.com/download)
+- Or on Linux terminal:
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ```
 
-### Step 1: Start the Backend API Server
-
-Open a terminal or command prompt:
-
+### Step 2: Start the Ollama Service
+Ensure the Ollama background daemon is running:
 ```bash
-# Navigate to the backend folder
+ollama serve
+```
+*(On Windows or macOS with the desktop app installed, Ollama starts automatically in the system tray).*
+
+### Step 3: Download the Gemma 3:4B Model
+In your terminal, pull the required model tag:
+```bash
+ollama pull gemma3:4b
+```
+
+### Step 4: Verify Model Availability
+Verify that `gemma3:4b` is present and ready:
+```bash
+ollama list
+```
+You should see:
+```text
+NAME         ID              SIZE      MODIFIED
+gemma3:4b    ...             ...       ...
+```
+
+### Step 5: Configure Backend Environment Variables
+In `medisense/backend/`, ensure `.env` is configured with:
+```ini
+AI_PROVIDER=ollama
+AI_MODEL=gemma3:4b
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_TIMEOUT_SECONDS=30.0
+```
+> [!TIP]
+> If you ever need to run in offline testing mode without Ollama, simply change `AI_PROVIDER=demo`.
+
+### Step 6: Start the Backend API Server
+Open a terminal:
+```bash
 cd medisense/backend
 
-# (Optional) Create a virtual environment
+# (Optional) Virtual environment
 python -m venv venv
 venv\Scripts\activate      # On Windows
 # source venv/bin/activate # On Mac/Linux
 
-# Install backend dependencies
 pip install -r requirements.txt
-
-# Start the server
 python run.py
 ```
+- API is running at: **`http://127.0.0.1:8000`**
+- Health-check endpoint: **`http://127.0.0.1:8000/api/health-check`**
+- Interactive Swagger docs: **`http://127.0.0.1:8000/docs`**
 
-*The backend server will start on **`http://127.0.0.1:8000`**.*
-- Interactive Swagger API Documentation: **`http://127.0.0.1:8000/docs`**
-- System Health Check: **`http://127.0.0.1:8000/api/health-check`**
-
----
-
-### Step 2: Start the Frontend Application
-
-Open a second terminal window:
-
+### Step 7: Start the Frontend Application
+Open a second terminal:
 ```bash
-# Navigate to the frontend folder
 cd medisense/frontend
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
+- Web Application is running at: **`http://localhost:5173`**
 
-*The frontend application will start on **`http://localhost:5173`**.*
-Open your web browser and navigate to **`http://localhost:5173`**.
-
----
-
-### 💡 1-Click Launch on Windows:
-Simply right-click `start-all.ps1` and choose **"Run with PowerShell"**, or double-click `start-backend.bat` followed by `start-frontend.bat`.
+### Step 8: Test Each Major Feature
+1. **Symptom Checker (`/symptom-checker`):** Enter *"I have a mild tension headache and fatigue for 2 days."* Verify that Gemma 3:4B analyzes symptoms and displays educational guidance with `Mode: AI Safety Evaluated`.
+2. **Emergency Shield (`/symptom-checker`):** Enter *"crushing chest pain"*. Verify the red banner pops up immediately and assigns `EMERGENCY_CARE` (112 India / 911 USA) without waiting for Ollama.
+3. **Doctor Summary ("What Should I Tell My Doctor?", `/doctor-summary`):** Enter your concerns and click *Generate Consultation Summary*. Verify that an empathetic, articulate first-person patient speaking script is generated with questions for your doctor.
+4. **Medicine Explainer (`/medicines`):** Search for *"Paracetamol"* or *"Amoxicillin"*. Verify the 12-section verified monograph is loaded from the curated database.
+5. **Ambiguity Guardrail (`/medicines`):** Search for *"painkiller"* or *"cough syrup"*. Verify that Medisense prompts you to specify the active ingredient or package name.
+6. **Medication Schedule & Reminders (`/medications`):** Add a scheduled medicine, log today's dose as taken, and verify adherence tracking and browser notification controls.
 
 ---
 
 ## 🧪 Running Automated Tests
 
-### 1. Backend Pytest Suite:
-The backend includes 13 comprehensive unit and integration tests covering:
-- Immediate triage of acute chest pain, stroke symptoms, and infant high fevers
-- Prolonged fever routing to *"See a Doctor Soon"*
-- Mild tension headaches routed to supportive *"Home Care"*
-- Missing symptom data generating targeted follow-up questions
-- Medicine catalog lookup and ambiguous keyword detection (*"painkiller"*)
-- Medication schedule CRUD, dose logging, and daily reminder checklist calculation
-- Structured doctor consultation brief and speaking script generation
+The backend includes **29 automated tests** covering both the existing safety infrastructure and the new Ollama adapter. Automated tests use mocked Ollama responses in `conftest.py` so the test suite passes 100% offline without needing Ollama running or the model downloaded.
 
-To execute the test suite:
-
+To run the test suite:
 ```bash
 cd medisense/backend
 python -m pytest tests -v
 ```
 
-**Expected output:**
-```text
-tests/test_doctor_summary.py::test_generate_doctor_consultation_summary PASSED
-tests/test_doctor_summary.py::test_missing_info_marked_accurately PASSED
-tests/test_medications.py::test_medication_crud_and_reminders PASSED
-tests/test_medicines.py::test_search_verified_medicine PASSED
-tests/test_medicines.py::test_search_ambiguous_keyword_triggers_guidance PASSED
-tests/test_medicines.py::test_get_medicine_details PASSED
-tests/test_medicines.py::test_unknown_medicine_returns_404 PASSED
-tests/test_symptoms.py::test_emergency_triage_chest_pain PASSED
-tests/test_symptoms.py::test_emergency_triage_stroke_signs PASSED
-tests/test_symptoms.py::test_emergency_infant_fever PASSED
-tests/test_symptoms.py::test_see_doctor_soon_prolonged_fever PASSED
-tests/test_symptoms.py::test_mild_headache_home_care PASSED
-tests/test_symptoms.py::test_uncertain_and_missing_info_generates_followup PASSED
-
-======================== 13 passed in 1.45s ========================
-```
-
-### 2. Frontend Production Build Verification:
-To verify that all TypeScript types, React components, and Tailwind styles compile without errors:
-
-```bash
-cd medisense/frontend
-npm run build
-```
-
----
-
-## 🌟 Feature Walkthrough & Verification
-
-### 1. Smart Symptom Checker (`/symptom-checker`)
-- **Natural Language Input:** Type freeform sentences like *"I have had a mild headache since yesterday and feel tired."*
-- **Real-Time Emergency Shield:** Type *"crushing chest pain"* or *"slurred speech"* — an **instant red alert card pops up dynamically before you even hit Submit**, warning you to call **112 / 911** immediately without delay.
-- **Urgency Levels:** Categorized into:
-  - 🔴 **Emergency Care:** Immediate emergency services required.
-  - 🟠 **See a Doctor Soon:** Urgent care or prompt doctor visit within 24–48 hours.
-  - 🔵 **Routine Medical Appointment:** Non-urgent general assessment.
-  - 🟢 **Home Care and Monitoring:** Low-risk supportive self-care (hydration, rest) with red flags to monitor.
-
-### 2. Possible Conditions & Diagnostic Suggestions (`/symptom-results`)
-- Shows possible explanations labeled explicitly as possibilities rather than confirmed diagnoses.
-- Displays typical symptoms vs. which of your reported symptoms match.
-- Notes key missing information and uncertainty.
-- Lists examinations a doctor might consider (e.g. cranial nerve exam, blood count) while explaining that the doctor determines necessity.
-
-### 3. "What Should I Tell My Doctor?" (`/doctor-summary`)
-- Synthesizes user symptoms into an articulate opening speaking script:
-  > *"Doctor, my primary concern is Headache and fatigue. I have been noticing headache, tiredness, and mild fever. These symptoms started around yesterday and have been staying steady..."*
-- Includes structured sections: Main concern, Onset, Progression, Severity (1-10), Associated symptoms, Background medical history, Current medicines, and Allergies.
-- **Copy Script** button with one-click clipboard toast.
-- **Edit Report** button allowing users to customize details before sharing.
-- **Print / Save PDF** button with dedicated `@media print` clean formatting.
-
-### 4. Medicine Explainer (`/medicines`)
-- Search by brand name (*"Dolo 650"*, *"Brufen"*, *"Glycomet"*, *"Omez"*) or generic active ingredient (*"Paracetamol"*, *"Metformin"*, *"Amlodipine"*, *"Amoxicillin"*, *"ORS"*).
-- **Ambiguity Guardrail:** Search *"painkiller"* or *"cough syrup"* to see the system catch the ambiguous term and request active ingredients.
-- Displays 12 verified sections:
-  1. Active ingredient & Brand names
-  2. Common uses
-  3. How it works (plain English)
-  4. Common side effects
-  5. Serious warning signs (when to call doctor)
-  6. Important precautions
-  7. Food instructions & meal timing
-  8. Contraindications & drug interactions
-  9. Storage directions
-  10. Special populations (children, pregnancy, elderly, renal/hepatic)
-  11. Questions to ask doctor or pharmacist
-  12. Official source citations and verification date
-
-### 5. Daily Medicine Reminders & Tracker (`/medications`)
-- Add medication with custom reminder times (e.g. `08:00`, `20:00`), prescription instructions, and active days.
-- **Today's Dose Checklist:** Mark doses as **Taken** or **Skipped** with real-time progress bar.
-- **Browser Notifications:** Integrated with the Web Notifications API to trigger reminder alerts at scheduled dose times.
-- **Adherence Statistics:** Calculates weekly compliance percentage and active streaks.
-- **Missed Dose Protocol:** Clearly warns users to never double-dose and directs them to pharmacist instructions.
-
-### 6. Disease-Specific Precautions (`/health-guides`)
-- Deep-dive evidence-based guidance for Type 2 Diabetes, Hypertension, Bronchial Asthma, Migraine, and Acid Reflux (GERD).
-- Daily precautions, red flag warning signs, lifestyle tips, and medication cautions.
-
-### 7. Patient Privacy & Data Management (`/settings`)
-- **Data Minimization:** No personal trackers, no advertising cookies.
-- **Export Data:** Download all cached records as a JSON file with one click.
-- **Right to Erasure:** Purge all stored records from the browser with one click.
+**Test Suite Coverage Summary (29 Passed):**
+- `test_ollama_service.py` (16 tests):
+  - JSON sanitization & markdown fence extraction
+  - Connection failure handling (clean HTTP 503 instructing `ollama serve`)
+  - Missing model handling (clean HTTP 503 instructing `ollama pull gemma3:4b`)
+  - Timeout handling (clean HTTP 504)
+  - Empty message and malformed response handling (clean HTTP 502)
+  - Gemma 3:4B symptom assessment schema validation
+  - Emergency safety rule bypass (cannot be overridden by LLM)
+  - Baseline safety floor downgrade prevention
+  - Gemma 3:4B doctor consultation brief generation
+- `test_symptoms.py` (6 tests):
+  - Acute chest pain emergency triage
+  - Stroke symptoms FAST protocol emergency triage
+  - Infant high fever pediatric emergency triage
+  - Prolonged fever routing to *See a Doctor Soon*
+  - Mild headache home care recommendation
+  - Missing symptom info follow-up generation
+- `test_doctor_summary.py` (2 tests):
+  - Speaking script generation and question compilation
+  - Missing clinical information tracking
+- `test_medicines.py` (4 tests):
+  - Verified medicine search & active ingredient lookup
+  - Ambiguous keyword interception (*"painkiller"*)
+  - Full pharmaceutical monograph retrieval
+  - Unknown drug 404 response
+- `test_medications.py` (1 test):
+  - Medication CRUD, dose logging, adherence tracking, daily checklist
 
 ---
 
-## 🌐 API Documentation
+## 🌐 Production & Hosted Deployment Guide
 
-FastAPI automatically serves interactive Swagger documentation at **`http://127.0.0.1:8000/docs`**.
+### Critical Cloud Architecture Note:
+A local Ollama instance running on `localhost:11434` is **NOT** reachable by a cloud-deployed website (e.g. Render, Railway, AWS). 
 
-### Key Endpoints:
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/symptoms/analyze` | Evaluates emergency red flags and assigns an urgency category |
-| `POST` | `/api/symptoms/doctor-summary` | Generates structured consultation brief and patient speaking script |
-| `GET` | `/api/symptoms/history` | Retrieves recent symptom triage history |
-| `GET` | `/api/medicines/search?q={query}` | Searches drug catalog or flags ambiguous keywords |
-| `GET` | `/api/medicines/{id}` | Retrieves full verified pharmaceutical monograph |
-| `GET` | `/api/medications` | Lists active medications |
-| `POST` | `/api/medications` | Creates a new medication schedule |
-| `PATCH` | `/api/medications/{id}` | Updates medication properties |
-| `DELETE` | `/api/medications/{id}` | Removes a medication |
-| `POST` | `/api/medications/{id}/dose-log` | Records dose status (`taken`, `skipped`, `pending`) |
-| `GET` | `/api/medications/reminders/today` | Calculates today's scheduled dose checklist |
-| `GET` | `/api/medications/adherence/stats` | Computes adherence percentage and dose history |
-| `GET` | `/api/health/conditions` | Lists chronic disease guides |
-| `GET` | `/api/health-check` | Verifies server, database, and triage mode status |
+To use Gemma 3:4B with a deployed website:
+1. **Provision an Ollama Inference Host:**
+   - Deploy Ollama on a GPU/CPU virtual server (e.g., AWS EC2, GCP Compute Engine, RunPod, or a private VPS with at least 8GB RAM).
+   - Run `ollama pull gemma3:4b`.
+2. **Secure the Inference Endpoint:**
+   - Place Ollama behind a private VPC, Tailscale VPN, or an authenticated reverse proxy (e.g., Caddy or Nginx with bearer token authentication).
+   - **NEVER** expose an unauthenticated Ollama port `11434` to the public internet.
+3. **Configure the Backend:**
+   - Set `OLLAMA_BASE_URL=https://private-ollama.your-domain.internal` on your backend.
+   - Keep `AI_PROVIDER=ollama` and `AI_MODEL=gemma3:4b`.
+   - The frontend communicates **only** with the backend API (`VITE_API_BASE_URL`). The frontend never talks to Ollama directly.
+4. **Fallback Option:**
+   - If dedicated Ollama hosting is not available, set `AI_PROVIDER=demo` on the backend. Medisense will run fully and safely using its built-in clinical rule engine without any external dependency.
 
 ---
 
-## 🚢 Production Deployment Guide
+## ⚖️ Ethical & Privacy Declaration
 
-### Deploying the Backend (e.g., Render, Railway, Fly.io):
-1. Set Environment Variables:
-   - `DATABASE_URL`: `sqlite:///./medisense.db` (or a PostgreSQL connection string: `postgresql://user:pass@host/dbname`).
-   - `MEDISENSE_ENV`: `production`
-   - `AI_PROVIDER`: `demo` (or `gemini` / `openai` with `AI_API_KEY`)
-   - `CORS_ORIGINS`: Your frontend production URL (e.g., `https://my-medisense.vercel.app`)
-2. Start Command:
-   ```bash
-   uvicorn app.main:app --host 0.0.0.0 --port $PORT
-   ```
-
-### Deploying the Frontend (e.g., Vercel, Netlify):
-1. Build Command: `npm run build`
-2. Output Directory: `dist`
-3. Environment Variable:
-   - `VITE_API_BASE_URL`: Your deployed backend URL (e.g., `https://medisense-api.onrender.com`)
-
----
-
-## 🛠️ Troubleshooting Guide
-
-- **PowerShell script execution disabled:** Run `npm.cmd` instead of `npm`, or start scripts using the provided `.bat` files.
-- **Port 8000 or 5173 in use:**
-  - Backend: Run `python run.py --port 8001` or set `PORT=8001` in `.env`.
-  - Frontend: Vite will automatically offer the next available port (e.g., 5174).
-- **Browser notifications not showing:** Ensure notification permission is set to "Allow" in your browser settings (look for the lock/settings icon in the address bar). Note that browser notifications require the tab or browser to remain active.
-
----
-
-## ⚖️ License & Ethical Declaration
-
-Medisense was built strictly adhering to patient safety ethics, conservative triage principles, and verified data separation. Developed for educational and supportive healthcare purposes.
-
+Medisense was engineered strictly adhering to patient safety ethics, conservative triage principles, and verified data separation. Developed for educational and supportive healthcare literacy purposes.

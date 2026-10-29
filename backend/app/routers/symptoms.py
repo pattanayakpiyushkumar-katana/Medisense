@@ -1,4 +1,5 @@
 import json
+import logging
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -8,12 +9,37 @@ from ..schemas.symptom import SymptomAnalysisRequest, SymptomAnalysisResponse
 from ..schemas.doctor_summary import DoctorSummaryRequest, DoctorSummaryResponse
 from ..services.symptom_analyzer import analyze_symptoms
 from ..services.doctor_summary_gen import generate_doctor_summary
+from ..services.ollama_service import (
+    OllamaConnectionError,
+    OllamaModelNotFoundError,
+    OllamaTimeoutError,
+    OllamaResponseError,
+    OllamaServiceError
+)
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/symptoms", tags=["Symptoms & Triage"])
 
 @router.post("/analyze", response_model=SymptomAnalysisResponse)
 def analyze_symptoms_endpoint(req: SymptomAnalysisRequest, db: Session = Depends(get_db)):
-    result = analyze_symptoms(req)
+    try:
+        result = analyze_symptoms(req)
+    except (OllamaConnectionError, OllamaModelNotFoundError) as err:
+        logger.warning(f"Ollama availability issue: {err}")
+        raise HTTPException(status_code=503, detail=str(err))
+    except OllamaTimeoutError as err:
+        logger.warning(f"Ollama inference timeout: {err}")
+        raise HTTPException(status_code=504, detail=str(err))
+    except (OllamaResponseError, OllamaServiceError) as err:
+        logger.error(f"Ollama processing error: {err}")
+        raise HTTPException(status_code=502, detail=str(err))
+    except Exception as err:
+        logger.exception("Unexpected error during symptom analysis")
+        raise HTTPException(
+            status_code=500,
+            detail="An unexpected error occurred during symptom analysis. Please try again or seek emergency care if you feel unwell."
+        )
     
     # Save record to local database for user dashboard history
     try:
@@ -33,7 +59,23 @@ def analyze_symptoms_endpoint(req: SymptomAnalysisRequest, db: Session = Depends
 
 @router.post("/doctor-summary", response_model=DoctorSummaryResponse)
 def create_doctor_summary_endpoint(req: DoctorSummaryRequest, db: Session = Depends(get_db)):
-    result = generate_doctor_summary(req)
+    try:
+        result = generate_doctor_summary(req)
+    except (OllamaConnectionError, OllamaModelNotFoundError) as err:
+        logger.warning(f"Ollama availability issue: {err}")
+        raise HTTPException(status_code=503, detail=str(err))
+    except OllamaTimeoutError as err:
+        logger.warning(f"Ollama inference timeout: {err}")
+        raise HTTPException(status_code=504, detail=str(err))
+    except (OllamaResponseError, OllamaServiceError) as err:
+        logger.error(f"Ollama processing error: {err}")
+        raise HTTPException(status_code=502, detail=str(err))
+    except Exception as err:
+        logger.exception("Unexpected error during doctor summary generation")
+        raise HTTPException(
+            status_code=500,
+            detail="An unexpected error occurred while preparing your doctor summary. Please try again."
+        )
     
     try:
         record = DoctorSummaryRecord(
@@ -67,4 +109,3 @@ def get_symptom_history(db: Session = Depends(get_db)):
             "details": parsed
         })
     return results
-
