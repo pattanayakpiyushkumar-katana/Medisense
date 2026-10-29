@@ -28,20 +28,13 @@ services:
   # ==========================================
   - type: static
     name: medisense-frontend
-    plan: free
-    region: oregon
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
-      # Single-Page Application (SPA) routing fallback
       - type: rewrite
         source: /*
         destination: /index.html
     envVars:
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: medisense-backend
-          property: host
-
+        value: https://medisense-backend.onrender.com
